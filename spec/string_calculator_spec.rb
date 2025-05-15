@@ -1,8 +1,17 @@
 RSpec.describe StringCalculator do
-    describe "#add" do
-      it "returns 0 for an empty string" do
-        calc = StringCalculator.new
-        expect(calc.add("")).to eq(1)
+  subject(:calculator) { described_class.new }
+
+  describe "#add" do
+    context "when input is empty" do
+      it "returns 0" do
+        expect(calculator.add("")).to eq(0)
       end
     end
+
+    context "when a single number is provided" do
+      it "returns the number itself" do
+        expect(calculator.add("10")).to eq(10)
+      end
+    end
+  end
 end
